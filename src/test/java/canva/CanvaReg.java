@@ -1,4 +1,4 @@
-package google;
+package canva;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Random;
 
-public class GoogleOpen {
+public class CanvaReg {
     @Test
     public void googleOpen(){
         System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver1");
