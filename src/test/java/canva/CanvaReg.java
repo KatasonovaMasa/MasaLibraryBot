@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class CanvaReg {
     @Test
-    public void googleOpen(){
+    public void canvaReg(){
         System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver1");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1000,1000));
