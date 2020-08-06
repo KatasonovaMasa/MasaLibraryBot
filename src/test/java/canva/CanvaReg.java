@@ -43,6 +43,6 @@ public class CanvaReg {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//html/body/div[2]/div/div/div[3]/div/div/div/div/div/div")));
 
         //закрывем браузер
-         driver.quit();
+        driver.quit();
     }
 }
