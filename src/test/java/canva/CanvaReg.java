@@ -19,12 +19,12 @@ public class CanvaReg {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1200,1200));
         driver.get("https://www.canva.com");
-        WebElement button = driver.findElement(By.xpath("//html/body/div[3]/div/main/div[6]/div/section/div/div/div/div/div/div/button"));
+        WebElement button = driver.findElement(By.xpath("//section//..//span[text()='Зарегистрироваться']"));
         button.click();
 
         //убеждаемся, что браузер открылся в течении 10 сек
-        WebDriverWait  wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//html/body/div[3]/div/main/div[6]/div/section/div")));
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[text()='Создать учетную запись']")));
 
         driver.findElement(By.xpath("//*[@name='name']")).sendKeys("Maru");
 
@@ -40,9 +40,9 @@ public class CanvaReg {
         driver.findElement(By.xpath("//span[text()='Начните работу! Это бесплатно.']")).click();
 
         //проверяем проверку путем появления элемента после регистрации
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//html/body/div[2]/div/div/div[3]/div/div/div/div/div/div")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div//..//p[text()='Мы собираем эту информацию, чтобы рекомендовать именно те дизайны и шаблоны, которые могут вам понравиться.']")));
 
         //закрывем браузер
-         driver.quit();
+        driver.quit();
     }
 }
