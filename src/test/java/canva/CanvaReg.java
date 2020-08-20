@@ -31,7 +31,7 @@ public class CanvaReg {
         //добавляем метод рандомного добавления числа, для уникальности email
         Random random = new Random();
         int n = random.nextInt(100) +1;
-        String email = "katasonova_masa" + n + "@gmail.com";
+        String email = "katasonova_masa1" + n + "@gmail.com";
         System.out.println(email);
 
         //ищем элементы формы и заполняем данные
@@ -43,6 +43,6 @@ public class CanvaReg {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div//..//p[text()='Мы собираем эту информацию, чтобы рекомендовать именно те дизайны и шаблоны, которые могут вам понравиться.']")));
 
         //закрывем браузер
-        driver.quit();
+       // driver.quit();
     }
 }
