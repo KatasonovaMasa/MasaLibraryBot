@@ -15,34 +15,30 @@ import java.util.Random;
 public class CanvaReg {
     @Test
     public void canvaReg(){
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver1");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver");
         WebDriver driver = new ChromeDriver();
-        driver.manage().window().setSize(new Dimension(1200,1200));
+        driver.manage().window().setSize(new Dimension(1500,1500));
         driver.get("https://www.canva.com");
-        WebElement button = driver.findElement(By.xpath("//section//..//span[text()='Зарегистрироваться']"));
+        WebElement button = driver.findElement(By.xpath("//span[text()='Sign up']"));
         button.click();
-
         //убеждаемся, что браузер открылся в течении 10 сек
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[text()='Создать учетную запись']")));
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section//..//span[text()='Sign up with email']"))).click();
 
         driver.findElement(By.xpath("//*[@name='name']")).sendKeys("Maru");
-
         //добавляем метод рандомного добавления числа, для уникальности email
         Random random = new Random();
         int n = random.nextInt(100) +1;
         String email = "katasonova_masa1" + n + "@gmail.com";
         System.out.println(email);
-
         //ищем элементы формы и заполняем данные
         driver.findElement(By.xpath("//*[@name='email']")).sendKeys(email);
-        driver.findElement(By.cssSelector("input[type=\"password\"]")).sendKeys("zaqplM123!@");
-        driver.findElement(By.xpath("//span[text()='Начните работу! Это бесплатно.']")).click();
-
+        driver.findElement(By.xpath("//*[@name='password']")).sendKeys("zaqplM123!@");
+        driver.findElement(By.xpath("//span[contains(text(),\"Get started, it's free!\")]")).click();
         //проверяем проверку путем появления элемента после регистрации
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div//..//p[text()='Мы собираем эту информацию, чтобы рекомендовать именно те дизайны и шаблоны, которые могут вам понравиться.']")));
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(), \"We'll use this to recommend designs and templates especially for you.\")]")));
         //закрывем браузер
-       // driver.quit();
+        // driver.quit();
     }
 }
